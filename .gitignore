@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+.venv/
+venv/
+dist/
+build/
+
+# Node.js
+node_modules/
+src/dashboard/frontend/dist/
+
+# Rust
+target/
+*.pdb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Data (large files not needed in repo)
+*.tif
+*.tiff
+data/pipeline_output/features/
+data/pipeline_output/predictions/
+data/pipeline_output/predictions_test/
+data/pipeline_output/raster_pngs/
+data/pipeline_output/rust_preds/
+data/pipeline_output/models/*.pt
+data/pipeline_output/models/*.pkl
+
+# Model checkpoints (too large for git)
+reproduce/models/checkpoints/*.pt
+reproduce/models/checkpoints/*.pkl
+
+# Keep these dashboard binaries (force-added)
+# src/dashboard/data/nuremberg_dashboard/*.bin
