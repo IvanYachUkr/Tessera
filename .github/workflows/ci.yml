@@ -1,5 +1,5 @@
 # ===========================================================================
-# TerraPulse CI/CD – GitHub Actions
+# Tessera CI/CD – GitHub Actions
 # ===========================================================================
 # On every push/PR: cargo test + frontend build
 # On push to main:  build & push Docker image to GitHub Container Registry
@@ -15,7 +15,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: ivanyachukr/terrapulse
 
 jobs:
   # -----------------------------------------------------------------
