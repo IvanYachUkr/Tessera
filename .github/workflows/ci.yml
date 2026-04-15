@@ -15,7 +15,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ivanyachukr/terrapulse
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   # -----------------------------------------------------------------
@@ -125,5 +125,5 @@ jobs:
           az containerapp update \
             --name terrapulse \
             --resource-group terrapulse-rg \
-            --image ghcr.io/ivanyachukr/terrapulse:latest \
+            --image ghcr.io/${{ github.repository }}:latest \
             --revision-suffix ${{ github.sha }}
