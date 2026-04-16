@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/TerraPulse_logo.png" alt="Tessera" width="200">
+  <img src="assets/Tessera_logo.png" alt="Tessera" width="200">
   <h1 align="center">Tessera</h1>
   <p align="center">
     <strong>Satellite-to-Map: Predicting Land Cover from Space</strong>
@@ -218,12 +218,12 @@ Distinguishing grassland from cropland is notoriously difficult from single-date
 ### Option 1: Docker (recommended)
 
 ```bash
-docker pull ghcr.io/ivanyachukr/terrapulse:latest
-docker run -p 8000:8000 ghcr.io/ivanyachukr/terrapulse:latest
+docker pull ghcr.io/ivanyachukr/tessera:latest
+docker run -p 8000:8000 ghcr.io/ivanyachukr/tessera:latest
 # Open http://localhost:8000
 ```
 
-The Docker image is self-contained: Rust binary, ONNX model, frontend build, precomputed Nuremberg data, and API server.
+The Docker image is self-contained: Rust inference binary, ONNX model, frontend build, precomputed Nuremberg data, and API server.
 
 ### Option 2: Build from source
 
