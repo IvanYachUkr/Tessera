@@ -10,23 +10,23 @@ Download Sentinel-2 satellite imagery for **any location on Earth** with one com
 ## Step 0: Pull the Docker image
 
 ```bash
-docker pull ghcr.io/ivanyachukr/terrapulse:latest
+docker pull ghcr.io/ivanyachukr/tessera:latest
 ```
 
-This downloads the pre-built TerraPulse image (~400 MB, first time only). The `download.py` script does this automatically, but pulling manually lets you verify Docker is working.
+This downloads the pre-built Tessera image (~400 MB, first time only). The `download.py` script does this automatically, but pulling manually lets you verify Docker is working.
 
 ## Step 1: Get the script
 
-Download [`download.py`](https://raw.githubusercontent.com/IvanYachUkr/TerraPulse/main/download.py) — it's a single file, no pip install needed.
+Download [`download.py`](https://raw.githubusercontent.com/IvanYachUkr/Tessera/main/download.py) — it's a single file, no pip install needed.
 
 **Linux / macOS:**
 ```bash
-curl -O https://raw.githubusercontent.com/IvanYachUkr/TerraPulse/main/download.py
+curl -O https://raw.githubusercontent.com/IvanYachUkr/Tessera/main/download.py
 ```
 
 **Windows (PowerShell):**
 ```powershell
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/IvanYachUkr/TerraPulse/main/download.py" -OutFile "download.py"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/IvanYachUkr/Tessera/main/download.py" -OutFile "download.py"
 ```
 
 Or just click the link above and save the file.
@@ -38,7 +38,7 @@ python download.py --bbox 10.95 49.38 11.20 49.52 --output ./satellite_data
 ```
 
 That's it. The script:
-- Pulls the TerraPulse Docker image (first time only, ~400 MB)
+- Pulls the Tessera Docker image (first time only, ~400 MB)
 - Downloads Sentinel-2 + Sentinel-1 seasonal composites
 - Saves GeoTIFF files to the folder you specified
 
@@ -107,16 +107,16 @@ Each optical GeoTIFF contains 10 Sentinel-2 bands (B02, B03, B04, B05, B06, B07,
 
 ## Full Pipeline (Download + Extract + Predict)
 
-For feature extraction and land cover predictions, use [`pipeline.py`](https://raw.githubusercontent.com/IvanYachUkr/TerraPulse/main/pipeline.py) instead:
+For feature extraction and land cover predictions, use [`pipeline.py`](https://raw.githubusercontent.com/IvanYachUkr/Tessera/main/pipeline.py) instead:
 
 **Linux / macOS:**
 ```bash
-curl -O https://raw.githubusercontent.com/IvanYachUkr/TerraPulse/main/pipeline.py
+curl -O https://raw.githubusercontent.com/IvanYachUkr/Tessera/main/pipeline.py
 ```
 
 **Windows (PowerShell):**
 ```powershell
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/IvanYachUkr/TerraPulse/main/pipeline.py" -OutFile "pipeline.py"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/IvanYachUkr/Tessera/main/pipeline.py" -OutFile "pipeline.py"
 ```
 
 ### Run the full pipeline

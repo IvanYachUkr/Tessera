@@ -1,4 +1,4 @@
-# Reproducing the Pixel-Wise CatBoost Classifier (V5)
+# Reproducing the Pixel-Wise CatBoost Classifier
 
 > [!CAUTION]
 > **Minimum Hardware & Time Requirements**
@@ -14,7 +14,7 @@ End-to-end reproducibility for the per-pixel CatBoost land-cover model.
 
 | Item | Value |
 |------|-------|
-| **Model** | CatBoost V5 (`deep_unweighted`): depth=8, trees=3000, lr=0.03 |
+| **Model** | CatBoost (`deep_unweighted`): depth=8, trees=3000, lr=0.03 |
 | **Features** | 217 per-pixel features: S2 bands + spectral indices + SAR + temporal diffs |
 | **Training** | ~100 cities, 150K sampled pixels per city, GPU-accelerated |
 | **Validation** | 15 geographically diverse cities |

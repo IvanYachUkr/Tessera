@@ -1,4 +1,4 @@
-# 🔧 TerraPulse Rust CLI — Standalone Usage
+# 🔧 Tessera Rust CLI — Standalone Usage
 
 The Docker image ships a standalone Rust binary at `/usr/local/bin/terrapulse` that can be used
 **independently of the dashboard**. You can run individual pipeline stages — download satellite imagery,
@@ -27,7 +27,7 @@ and saves GeoTIFF files to the folder you specified.
 
 ### Step 1: Get the script
 
-Download [`download.py`](https://raw.githubusercontent.com/IvanYachUkr/TerraPulse/main/download.py)
+Download [`download.py`](https://raw.githubusercontent.com/IvanYachUkr/Tessera/main/download.py)
 from the repository (it's a single file, no dependencies beyond Python stdlib).
 
 ### Step 2: Run it
@@ -38,7 +38,7 @@ python download.py --bbox 10.95 49.38 11.20 49.52 --output ./nuremberg
 
 The script will:
 1. ✅ Check that Docker is installed and running
-2. ✅ Pull the TerraPulse image (first time only, ~400 MB)
+2. ✅ Pull the Tessera image (first time only, ~400 MB)
 3. ✅ Auto-detect the correct map projection (EPSG)
 4. ✅ Create the required anchor reference file
 5. ✅ Download Sentinel-2 + Sentinel-1 imagery
@@ -77,7 +77,7 @@ mount a folder from your machine using `-v`:
 ```bash
 # Creates a "terrapulse_data" folder on your desktop, mapped to /data inside the container
 docker run --rm -v ~/Desktop/terrapulse_data:/data \
-  --entrypoint terrapulse ghcr.io/ivanyachukr/terrapulse:latest \
+  --entrypoint terrapulse ghcr.io/ivanyachukr/tessera:latest \
   download --raw-dir /data/raw ...
 
 # After the run, files appear at ~/Desktop/terrapulse_data/raw/
@@ -122,7 +122,7 @@ Downloads Sentinel-2 (optical) and Sentinel-1 (SAR) composites from Microsoft Pl
 ```bash
 # Download Nuremberg imagery for 2023 and 2024
 docker run --rm -v $(pwd)/data:/data \
-  --entrypoint terrapulse ghcr.io/ivanyachukr/terrapulse:latest \
+  --entrypoint terrapulse ghcr.io/ivanyachukr/tessera:latest \
   download \
     --bbox 10.95 49.38 11.20 49.52 \
     --epsg 32632 \
@@ -173,7 +173,7 @@ and SAR features. Outputs a Parquet file per year pair.
 
 ```bash
 docker run --rm -v $(pwd)/data:/data \
-  --entrypoint terrapulse ghcr.io/ivanyachukr/terrapulse:latest \
+  --entrypoint terrapulse ghcr.io/ivanyachukr/tessera:latest \
   extract \
     --year-pairs "2023_2024" \
     --region nuremberg \
@@ -231,7 +231,7 @@ Chains all stages: **download → extract → predict → labels → grid**. Pro
 ```bash
 # Full pipeline for Nuremberg, 2023–2025
 docker run --rm -v $(pwd)/data:/data \
-  --entrypoint terrapulse ghcr.io/ivanyachukr/terrapulse:latest \
+  --entrypoint terrapulse ghcr.io/ivanyachukr/tessera:latest \
   pipeline \
     --bbox 10.95 49.38 11.20 49.52 \
     --epsg 32632 \
@@ -279,7 +279,7 @@ mkdir terrapulse_run && cd terrapulse_run
 # 2. Run the full pipeline
 #    Nuremberg bbox: [10.95 49.38 11.20 49.52], UTM zone 32N
 docker run --rm -v $(pwd):/data \
-  --entrypoint terrapulse ghcr.io/ivanyachukr/terrapulse:latest \
+  --entrypoint terrapulse ghcr.io/ivanyachukr/tessera:latest \
   pipeline \
     --bbox 10.95 49.38 11.20 49.52 \
     --epsg 32632 \
@@ -322,7 +322,7 @@ and run as many commands as you like from inside:
 ```bash
 # Start an interactive shell with your local folder mounted
 docker run --rm -it -v $(pwd)/data:/data \
-  --entrypoint bash ghcr.io/ivanyachukr/terrapulse:latest
+  --entrypoint bash ghcr.io/ivanyachukr/tessera:latest
 ```
 
 Now you're inside the container. Run commands directly — no `docker run` needed:

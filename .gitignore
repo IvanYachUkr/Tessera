@@ -45,3 +45,6 @@ reproduce/models/checkpoints/*.pkl
 
 # Keep these dashboard binaries (force-added)
 # src/dashboard/data/nuremberg_dashboard/*.bin
+
+# Large parquet files (keep reproduce/data/ ones already tracked via LFS/force)
+data/pipeline_output/**/*.parquet

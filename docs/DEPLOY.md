@@ -1,6 +1,6 @@
-# TerraPulse Deploy: Rust Pipeline & Production Infrastructure
+# Tessera Deploy: Rust Pipeline & Production Infrastructure
 
-> This document details the high-performance Rust pipeline, Docker containerization, and CI/CD infrastructure that powers TerraPulse's live prediction capability.
+> This document details the high-performance Rust pipeline, Docker containerization, and CI/CD infrastructure that powers Tessera's live prediction capability.
 
 ---
 
@@ -302,7 +302,7 @@ The `sar_download.rs` module handles Sentinel-1 Ground Range Detected (GRD) imag
 
 1. **rust-test**: `cargo test --release` in `terrapulse/` — runs all 17 tests (15 unit + 2 integration)
 2. **frontend-build**: `npm ci && npm run build` in `src/dashboard/frontend/`
-3. **docker**: Builds multi-stage image and pushes to `ghcr.io/{owner}/terrapulse:latest`
+3. **docker**: Builds multi-stage image and pushes to `ghcr.io/{owner}/tessera:latest`
 
 **Caching**: Cargo registry + build artifacts cached via `actions/cache@v4`, npm via `setup-node` cache, Docker layers via BuildKit `type=gha`.
 
